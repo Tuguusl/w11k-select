@@ -490,6 +490,7 @@ angular.module('w11k.select').directive('w11kSelect', [
             var optionValue = modelElement2value(element);
             var optionValueHash = hashCode(optionValue);
             var optionLabel = modelElement2label(element);
+            var optionCss = element.css;
 
             var selected;
             if (viewValueHashes[optionValueHash]) {
@@ -503,6 +504,7 @@ angular.module('w11k.select').directive('w11kSelect', [
               hash: optionValueHash,
               label: optionLabel,
               model: element,
+              css: optionCss,
               selected: selected
             };
           });

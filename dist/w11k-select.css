@@ -57,7 +57,7 @@
 .w11k-select .dropdown-menu .content ul.items > li {
   margin: 0;
   padding: 0;
-  display: table-row;
+  display: inline-table;
 }
 .w11k-select .dropdown-menu .content ul.items > li > div {
   display: table-cell;
@@ -82,3 +82,5 @@
   background-color: gray;
   cursor: pointer;
 }
+
+/*# sourceMappingURL=w11k-select.css.map */

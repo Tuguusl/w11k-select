@@ -19,7 +19,7 @@
                ng-model="filter.values.label"
                placeholder="{{config.filter.placeholder}}"
                ng-keypress="onKeyPressedInFilter($event)"
-            />
+        />
         <a class="input-group-addon clear" ng-click="clearFilter()">
           <i class="fa fa-times icon-clear-filter"></i>
         </a>
@@ -43,7 +43,7 @@
     </div>
     <div class="content" w11k-select-infinite-scroll="showMoreOptions()" w11k-select-infinite-scroll-distance="0.5">
       <ul class="items list-unstyled">
-        <li bindonce="option" ng-repeat="option in options.visible track by option.hash" ng-click="select(option)" ng-class="{'selected': option.selected }">
+        <li bindonce="option" ng-repeat="option in options.visible track by option.hash" ng-click="select(option)" class="{{option.css}}" ng-class="{'selected': option.selected}">
           <div class="state">
             <input type="checkbox" ng-checked="option.selected" ng-click="onOptionStateClick($event, option)">
           </div>

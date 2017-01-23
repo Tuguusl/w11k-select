@@ -44,6 +44,8 @@ angular.module('demo').controller('TestCtrl', function ($scope) {
 //    for (var i = 1; i <= amount; i++) {
 //      $scope.options.data.push({ label: randomText(i % 200), value: i });
 //    }
+
+    $scope.options.data.push({ label: "All Countries", value: "ALL", css: "all-countries" });
     for (var i = 1; i <= amount; i++) {
       $scope.options.data.push({ label: i, value: i });
     }

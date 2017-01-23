@@ -1,3 +1,9 @@
+/**
+ * w11k-select - v0.6.6 - 2016-06-27
+ * https://github.com/w11k/w11k-select
+ *
+ * Copyright (c) 2016 WeigleWilczek GmbH
+ */
 'use strict';
 
 angular.module('w11k.select', [
@@ -478,6 +484,7 @@ angular.module('w11k.select').directive('w11kSelect', [
             var optionValue = modelElement2value(element);
             var optionValueHash = hashCode(optionValue);
             var optionLabel = modelElement2label(element);
+            var optionCss = element.css;
 
             var selected;
             if (viewValueHashes[optionValueHash]) {
@@ -491,6 +498,7 @@ angular.module('w11k.select').directive('w11kSelect', [
               hash: optionValueHash,
               label: optionLabel,
               model: element,
+              css: optionCss,
               selected: selected
             };
           });

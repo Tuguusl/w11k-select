@@ -4,7 +4,7 @@ angular.module('demo', ['w11k.select']);
 
 angular.module('demo').controller('TestCtrl', function ($scope) {
 
-  var amount = 1000;
+  var amount = 10;
 
   var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0 1 2 3 4 5 6 7 8 9';
   var chars = possible.split('');
@@ -45,7 +45,7 @@ angular.module('demo').controller('TestCtrl', function ($scope) {
 //      $scope.options.data.push({ label: randomText(i % 200), value: i });
 //    }
 
-    $scope.options.data.push({ label: "All Countries", value: "ALL", css: "all-countries" });
+    $scope.options.data.push({label: "All Countries", value: "ALL", w11k: {css: "all-countries", labelHtml: "<strong>Pepe palotes</strong>"}});
     for (var i = 1; i <= amount; i++) {
       $scope.options.data.push({ label: i, value: i });
     }
@@ -55,10 +55,13 @@ angular.module('demo').controller('TestCtrl', function ($scope) {
     var randomIndex = Math.floor((Math.random() * $scope.options.data.length));
     var randomValue = $scope.options.data[randomIndex].value;
 
+    //$scope.selected.data.push($scope.options.data[0]);
+
     if ($scope.selected.data.indexOf(randomValue) < 0) {
       $scope.selected.data.push(randomValue);
       // we have to assign a different object, otherwise ng-model will not detect the change
       $scope.selected.data = angular.copy($scope.selected.data);
+      console.log($scope.selected.data);
     }
   };
 

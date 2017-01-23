@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="demo">
+  <head>
+    <meta charset="utf-8"/>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="../bower_components/es5-shim/es5-shim.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript" src="../bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="../bower_components/w11k-dropdownToggle/dist/w11k-dropdownToggle.js"></script>
+    <script type="text/javascript" src="../bower_components/angular-bindonce/bindonce.js"></script>
+    <script type="text/javascript" src="../dist/w11k-select.js"></script>
+    <script type="text/javascript" src="../dist/w11k-select.tpl.js"></script>
+    <script type="text/javascript" src="test2.js"></script>
+
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../dist/w11k-select.css"/>
+    <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.css"/>
+
+    <style type="text/css">
+      body {
+        padding: 2em;
+      }
+      .all-countries-item {
+        text-transform: uppercase;
+        background-color: #00AA88;
+        border-bottom: 1px solid red;
+        margin-bottom: 2px !important;
+      }
+    </style>
+  </head>
+  <body ng-controller="TestCtrl">
+    <form name="demoForm" class="w11k-select-adjust-height-to" style="height: 700px">
+      <fieldset>
+        <div class="row">
+          <div class="col-sm-6">
+            <div
+              w11k-select
+              w11k-select-config="{header: {placeholder: 'Countries'}, required: true, multiple: true}"
+              w11k-select-options="item as item.name for item in countries"
+              ng-model="model">
+            </div>
+          </div>
+        </div>
+
+      </fieldset>
+    </form>
+  </body>
+</html>

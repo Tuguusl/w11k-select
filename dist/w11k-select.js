@@ -1,4 +1,10 @@
 /**
+ * w11k-select - v0.6.6 - 2017-01-23
+ * https://github.com/w11k/w11k-select
+ *
+ * Copyright (c) 2017 WeigleWilczek GmbH
+ */
+/**
  * w11k-select - v0.6.6 - 2016-06-27
  * https://github.com/w11k/w11k-select
  *

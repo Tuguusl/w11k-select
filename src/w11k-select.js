@@ -484,23 +484,22 @@ angular.module('w11k.select').directive('w11kSelect', [
             var optionValue = modelElement2value(element);
             var optionValueHash = hashCode(optionValue);
             var optionLabel = modelElement2label(element);
-            var optionCss = element.css;
 
-            var selected;
-            if (viewValueHashes[optionValueHash]) {
-              selected = true;
-            }
-            else {
-              selected = false;
+            var resultElement = {};
+            resultElement.hash = optionValueHash;
+            resultElement.label = optionLabel;
+            resultElement.selected = viewValueHashes[optionValueHash] ? true : false;
+
+            if (element.w11k) {
+              resultElement.css = element.w11k.css;
+              resultElement.labelHtml = element.w11k.labelHtml;
+
+              delete element.w11k;
             }
 
-            return {
-              hash: optionValueHash,
-              label: optionLabel,
-              model: element,
-              css: optionCss,
-              selected: selected
-            };
+            resultElement.model = element;
+
+            return resultElement;
           });
 
           return options;

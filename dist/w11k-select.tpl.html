@@ -47,7 +47,8 @@
           <div class="state">
             <input type="checkbox" ng-checked="option.selected" ng-click="onOptionStateClick($event, option)">
           </div>
-          <div class="name" bo-text="option.label"></div>
+          <div ng-if="!option.labelHtml" class="name" bo-text="option.label"></div>
+          <div ng-if="option.labelHtml" class="name" bo-html="option.labelHtml"></div>
         </li>
       </ul>
     </div>

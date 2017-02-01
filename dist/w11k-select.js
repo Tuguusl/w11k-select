@@ -1,5 +1,5 @@
 /**
- * w11k-select - v0.7.1 - 2017-02-01
+ * w11k-select - v0.7.2 - 2017-02-01
  * https://github.com/w11k/w11k-select
  *
  * Copyright (c) 2017 WeigleWilczek GmbH
@@ -788,7 +788,7 @@ angular.module('w11k.select').directive('w11kSelect', [
         var toJsonHashCode = function (value) {
           var cleanObject = angular.copy(value);
 
-          if (typeof cleanObject === 'object') {
+          if (cleanObject !== null && cleanObject !== undefined && typeof cleanObject === 'object') {
             delete cleanObject.w11k;
           }
 

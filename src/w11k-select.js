@@ -782,7 +782,7 @@ angular.module('w11k.select').directive('w11kSelect', [
         var toJsonHashCode = function (value) {
           var cleanObject = angular.copy(value);
 
-          if (typeof cleanObject === 'object') {
+          if (cleanObject !== null && cleanObject !== undefined && typeof cleanObject === 'object') {
             delete cleanObject.w11k;
           }
 

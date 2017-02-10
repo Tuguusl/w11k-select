@@ -38,7 +38,7 @@
               w11k-select
               w11k-select-config="{header: {placeholder: 'Countries'}, required: true, multiple: true}"
               w11k-select-options="item as item.name for item in countries"
-              ng-model="model">
+              ng-model="model" on-filter-change="onFilterChange(value)">
             </div>
           </div>
         </div>

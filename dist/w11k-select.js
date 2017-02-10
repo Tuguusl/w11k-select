@@ -1,5 +1,5 @@
 /**
- * w11k-select - v0.7.4 - 2017-02-10
+ * w11k-select - v0.7.5 - 2017-02-10
  * https://github.com/w11k/w11k-select
  *
  * Copyright (c) 2017 WeigleWilczek GmbH
@@ -408,7 +408,8 @@ angular.module('w11k.select').directive('w11kSelect', [
         function filterOptions() {
           if (hasBeenOpened) {
             // false as third parameter: use contains to compare
-            optionsFiltered = filter(options, scope.filter.values, false);
+            var filterValues = scope.config.filter.showAll ? {} : scope.filter.values;
+            optionsFiltered = filter(options, filterValues, false);
             scope.options.visible = optionsFiltered.slice(0, initialLimitTo);
           }
         }
@@ -421,10 +422,8 @@ angular.module('w11k.select').directive('w11kSelect', [
           if (scope.onFilterChange !== undefined && typeof scope.onFilterChange === 'function') {
             scope.onFilterChange({value: value});
           }
-          
-          if (!scope.config.filter.showAll) {
-            filterOptions();
-          }
+
+          filterOptions();
         });
 
         scope.clearFilter = function () {

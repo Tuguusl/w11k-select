@@ -1,5 +1,5 @@
 /**
- * w11k-select - v0.7.2 - 2017-02-01
+ * w11k-select - v0.7.3 - 2017-02-10
  * https://github.com/w11k/w11k-select
  *
  * Copyright (c) 2017 WeigleWilczek GmbH
@@ -119,7 +119,10 @@ angular.module('w11k.select').directive('w11kSelect', [
       restrict: 'A',
       replace: false,
       templateUrl: w11kSelectConfig.common.templateUrl,
-      scope: {},
+      scope: {
+        ngModel: '=',
+        onFilterChange: '&'
+      },
       require: 'ngModel',
       link: function (scope, element, attrs, controller) {
 
@@ -412,7 +415,10 @@ angular.module('w11k.select').directive('w11kSelect', [
           scope.options.visible = optionsFiltered.slice(0, scope.options.visible.length + increaseLimitTo);
         };
 
-        scope.$watch('filter.values.label', function () {
+        scope.$watch('filter.values.label', function (value) {
+          if (scope.onFilterChange !== undefined && typeof scope.onFilterChange === 'function') {
+            scope.onFilterChange({value: value});
+          }
           filterOptions();
         });
 

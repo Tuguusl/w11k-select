@@ -13,5 +13,9 @@ angular.module('demo').controller('TestCtrl', function ($scope) {
     $scope.model = [{"id":0,"name":"All Countries","code":"ALL"}, {"id":5,"name":"Andorra","code":"AD"}];
   }
 
+  $scope.onFilterChange = function (value) {
+    console.log(value);
+  }
+
   createOptions();
 });
